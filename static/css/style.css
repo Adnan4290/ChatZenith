@@ -1,0 +1,589 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 4rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    /* 
+      Change favorite color
+      Default: hsl(162, 162, 40%)
+      Orange: hsl(14, 100%, 65%) - Blue: hsl(210, 100%, 70%)
+      Pink: hsl(356, 100%, 75%) - Purple: hsl(250, 100%, 75%)
+
+      For more colors visit: https://colors.dopely.top/color-pedia
+      -> Choose any color 
+      -> click on tab (Color Conversion)
+      -> Copy the color mode (HSL)
+  */
+
+    --hue: 210;
+    --first-color: hsl(var(--hue), 100%, 70%);
+    --first-color-alt: hsl(var(--hue), 56%, 35%);
+    --title-color: hsl(228, 8%, 95%);
+    --text-color: hsl(228, 8%, 65%);
+    --body-color: hsl(228, 15%, 20%);
+    --container-color: hsl(228, 15%, 15%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Poppins", sans-serif;
+    --biggest-font-size: 2rem;
+    --bigger-font-size: 1.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --bigger-font-size: 2rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+input,
+textarea,
+button,
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+
+}
+
+input,
+textarea,
+button {
+    outline: none;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 5rem 2rem;
+}
+
+.section__title,
+.section__subtitle {
+    text-align: center;
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+    font-size: var(--small-font-size);
+    margin-bottom: .25rem;
+}
+
+.section__subtitle span {
+    color: var(--first-color);
+}
+.main{
+margin-top: 4rem
+}
+
+/* ========================copied css====================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    background: var(--container-color);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.center h1 {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt_field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.txt_field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--first-color);
+    transition: .5s;
+}
+
+.txt_field input:focus~label,
+.txt_field input:valid~label {
+    top: -5px;
+    color: var(--first-color);
+}
+
+.txt_field input:focus~span::before,
+.txt_field input:valid~span::before {
+    width: 100%;
+}
+
+.pass {
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+
+.pass:hover {
+    text-decoration: underline;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: var(--first-color);
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+    border-color: #2691d9;
+    transition: .5s;
+}
+
+.signup_link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.signup_link a {
+    color: var(--first-color);
+    text-decoration: none;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
+
+/* ====================media queries==================== */
+/* for small devices */
+/* @media screen and (max-width: 320px){
+    .center{
+        width: ;
+    }
+} */
+/* ===================header and nav ======================= */
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--container-color);
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: var(--header-height);
+}
+
+
+
+.nav img {
+
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    object-fit:scale-down;}
+
+.nav__toggle,
+.nav__close {
+    display: flex;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__toggle {
+    margin-right: 1rem;
+}
+
+
+
+.wrapper {
+    display: flex;
+    width: 70vw;
+    margin: auto;
+    max-width: 300px;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.label {
+    font-size: .625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: +1.3px;
+    margin-bottom: 1rem;
+}
+
+.searchBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+#searchQueryInput::placeholder{
+    color:var(--text-color);
+}
+
+#searchQueryInput {
+    color: var(--text-color);
+    width: 100%;
+    height: 2.8rem;
+    background:var(--body-color);
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+}
+
+#searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#searchQuerySubmit:hover {
+    cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+    .nav__menu {
+        position: fixed; 
+        top: 0; 
+        position: absolute;
+        right: -100%;
+        background-color: var(--first-color);
+        width: 100%;
+        height: 100vh;
+        
+        padding: 4.5rem 0.5rem 0rem 0.5rem ;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        /* For safar/ */
+        transition: right 0.4s;
+    }
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.nav__list-item {
+    font-size: var(--bigger-font-size);
+    border: 2px solid var(--container-color);
+    background-color: var(--body-color);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    border-radius: 1rem;
+}
+.nav__list-item a svg {
+    margin-right: 1rem;
+    font-size: 2rem;
+}
+
+
+.nav__link {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    padding-block: 0.5rem;
+    /* margin: 4rem 1rem; */
+    transition: color .4s;
+}
+
+.nav__link:hover {
+    color: var(--first-color);
+}
+
+.nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;}
+
+/* Show menu */
+.show-menu {
+    right: 0;
+    margin: 0%  ;}
+
+/* Add blur to header */
+.blur-header {
+    background-color: transparent;
+}
+
+.blur-header::after {
+    content: '';
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    background-color: hsla(0, 0%, 10%, 0.3);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Active link */
+.active-link {
+    color: var(--first-color);
+}
+/* =======================================================chats==========================================
+ */
+ .chat {
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--container-color);
+    cursor: pointer;
+    max-width: 400px;
+    transition: background-color .4s;
+}
+.chat div img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+.chat__title{
+    color: var(--first-color);
+}
+
+/* for medium devices */
+@media screen and (min-width: 768px) {
+    .center {
+        width: 400px;
+    }
+}
+/* ==================================================logo============================= */
+.logo {
+    justify-self: center;
+    text-align: center;
+    padding-block: 2rem;
+    /* margin: 2rem; */
+    border-bottom: 2px solid var(--container-color);
+}
+
+.logo a{
+    color: var(--first-color);
+}
+/* ========================styles for the new chat bubble=================== */
+
+.chat__new {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--first-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* transition: background-color .4s; */
+}
+
+
+.chat__new-icon {
+    color: var(--body-color);
+    font-size: 1.5rem;
+}
+
+.chat__details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.chat__details-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.chat__details-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.chat__details-info {
+    flex: 1;
+}
+.chat__details-title {
+    font-size: 1rem;
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+.chat__details-status {
+    font-size: .875rem;
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+
+/* ========================styles for the chat details=================== */
+/* ========================styles for the chat messages=================== */
+/* <div class="chat__messages">
+<div class="chat__
+
+
+
+
+/* ===============scrollbar======================== */
+::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(228, 12%, 25%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(228, 8%, 35%);
+    border-radius: .5rem;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(228, 8%, 45%);
+  
+  }
