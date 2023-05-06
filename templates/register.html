@@ -11,33 +11,32 @@
 <body>
     <div class="center">
         <h1>Login</h1>
-        <form method="post">
+        <form action = "/register" method="post">
           <div class="txt_field">
-            <input type="text" required>
+            <input name="firstname" type="text" required>
             <span></span>
             <label>First Name</label>
           </div>
           <div class="txt_field">
-            <input type="text" required>
+            <input name = "lastname" type="text" required>
             <span></span>
             <label>Last Name</label>
           </div>
           <div class="txt_field">
-            <input type="email" required>
+            <input name="email" type="email" required>
             <span></span>
             <label>Email</label>
           </div>
           <div class="txt_field">
-            <input type="password" required>
+            <input name = "password" type="password" required>
             <span></span>
             <label>Password</label>
           </div>
           <div class="txt_field">
-            <input type="password" required>
+            <input name = "confirmpass" type="password" required>
             <span></span>
             <label> Confirm Password</label>
           </div>
-          <div class="pass">Forgot Password?</div>
           <input type="submit" value="Register">
           <div class="signup_link">
             Already have an account? <a href="/">Login</a>
