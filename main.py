@@ -33,32 +33,55 @@ class Accounts(db.Model):
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    if session.get('logged_in')== True:
+        return redirect("/default")
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         query = Accounts.query.filter(Accounts.email== email, Accounts.password== password).first()
         if query:
-            session['user'] = email
+            session['logged_in'] = True
             return redirect("/default")
     return render_template("/login.html")
 
-@app.route("/register")
+@app.route("/logout")
+def logout():
+    session.pop('logged_in')
+    return redirect("/")
+
+
+
+@app.route("/register", methods = ['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        firstname = request.form.get("firstname")
+        lastname = request.form.get("lastname")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirmpass = request.form.get("confirmpass")
+        query = Accounts.query.filter(Accounts.email == email).first()
+        if password == confirmpass and not query:
+            newacc = Accounts(email = email, first_name = firstname, last_name = lastname, password = password)
+            db.session.add(newacc)
+            db.session.commit()
+            newquery = Accounts.query.filter(Accounts.email== email, Accounts.password== password).first()
+            if newquery:
+                session['logged_in'] = True
+                return redirect("/default")
     return render_template("/register.html")
 
-
+@app.route("/otp")
+def otp():
+    return render_template("otp_verfy.html")
 @app.route("/chat")
 def chat():
     return render_template("chat.html")
 
 @app.route("/default")
 def default():
-    return render_template("default_Screen.html")
-@app.route('/new_chat')
-def new_chat():
-    return render_template("new_chat.html")
-@app.route('/verify_otp')
-def verify_otp():
-    return render_template("otp_verify.html")
+    if session.get('logged_in'):
+        return render_template("default_Screen.html")
+    else:
+        return redirect("/")
 
-app.run(debug= True,host='0.0.0.0',port='80')
+app.run(debug= True, host="0.0.0.0")
