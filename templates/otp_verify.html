@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP to verify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/otp.css
+    ">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="otp-wrapper">
+        <h1>Enter OTP</h1>
+        <form action="" method="post">
+            <fieldset>
+                <div>
+                    <label for="first-digit" class="sr-only">Enter First Digit</label>
+                    <input type="number" name="otp" id="first-digit" min="0" max="9" autofocus>
+                </div>
+                <div>
+                    <label for="second-digit" class="sr-only">Enter Second Digit</label>
+                    <input type="number" name="otp" id="second-digit" min="0" max="9">
+                </div>
+                <div>
+                    <label for="third-digit" class="sr-only">Enter Third Digit</label>
+                    <input type="number" name="otp" id="third-digit" min="0" max="9">
+                </div>
+                <div>
+                    <label for="fourth-digit" class="sr-only">Enter Fourth Digit</label>
+                    <input type="number" name="otp" id="fourth-digit" min="0" max="9">
+                </div>
+                <div>
+                    <label for="fifth-digit" class="sr-only">Enter Fifth Digit</label>
+                    <input type="number" name="otp" id="fifth-digit" min="0" max="9">
+                </div>
+                <div>
+                    <label for="sixth-digit" class="sr-only">Enter Sixth Digit</label>
+                    <input type="number" name="otp" id="sixth-digit" min="0" max="9">
+                </div>
+            </fieldset>
+            <div class="btn-wrapper">
+                <a href="javascript:void(0)" id="paste-btn">Paste</a>
+                <button type="submit" class="disabled">Verify</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/static/js/otp.js"></script>
+</body>
+</html>

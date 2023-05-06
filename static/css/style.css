@@ -80,12 +80,9 @@ button,
 body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-}
-
-body {
     background-color: var(--body-color);
     color: var(--text-color);
-
+    /* max-width: 400px; */
 }
 
 input,
@@ -281,13 +278,6 @@ input[type="submit"]:hover {
     text-decoration: underline;
 }
 
-/* ====================media queries==================== */
-/* for small devices */
-/* @media screen and (max-width: 320px){
-    .center{
-        width: ;
-    }
-} */
 /* ===================header and nav ======================= */
 .header {
     position: fixed;
@@ -587,3 +577,59 @@ input[type="submit"]:hover {
     background-color: hsl(228, 8%, 45%);
   
   }
+  /* ========================new Chat======================== */
+  .top{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: space-between;
+    align-content: center;
+    margin: 1rem 1rem 1rem 0rem;
+    position: relative;
+    top :0;
+    height: var(--header-height);
+ }
+/* select all elements in top */
+.top *{
+    margin: 0rem 1rem 0rem 0rem;
+}
+.top i{
+    font-size: 2rem;
+    color: var(--first-color);
+    cursor: pointer;
+}
+.to_input{
+    position: relative;
+    top: var(--header-height);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 0.5rem;
+    margin :2rem 0.5rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--container-color);
+    color: var(--title-color);
+}
+.to_input input{
+    max-width: 70vw;
+    border-radius: 1rem;
+    background-color: var(--container-color);
+    margin: 0rem 0.5rem;
+    height: 3rem;
+    color: var(--title-color);
+}
+.to_input span{
+    font-size: var(--bigger-font-size);
+}
+.keypad i{
+    font-size: 2rem;
+    color: var(--first-color);
+    cursor: pointer;
+
+}
+.search_results{
+position: relative;
+top: 3rem;
+}
+

@@ -54,5 +54,11 @@ def chat():
 @app.route("/default")
 def default():
     return render_template("default_Screen.html")
+@app.route('/new_chat')
+def new_chat():
+    return render_template("new_chat.html")
+@app.route('/verify_otp')
+def verify_otp():
+    return render_template("otp_verify.html")
 
-app.run(debug= True)
+app.run(debug= True,host='0.0.0.0',port='80')
