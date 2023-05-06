@@ -72,7 +72,7 @@ def register():
 
 @app.route("/otp")
 def otp():
-    return render_template("otp_verfy.html")
+    return render_template("otp_verify.html")
 @app.route("/chat")
 def chat():
     return render_template("chat.html")
