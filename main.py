@@ -89,7 +89,7 @@ def otp():
             newacc = Accounts(email = session.get('email'), first_name = session.get('firstname'), last_name = session.get('lastname'), password = session.get('password'))
             db.session.add(newacc)
             db.session.commit()
-            newquery = Accounts.query.filter(Accounts.email== email, Accounts.password== password).first()
+            newquery = Accounts.query.filter(Accounts.email== session.get('email'), Accounts.password== session.get('password')).first()
             if newquery:
                 session['logged_in'] = True
                 session.pop('otp')
