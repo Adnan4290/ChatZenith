@@ -1,3 +1,50 @@
+:root {
+    --header-height: 4rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    /* 
+      Change favorite color
+      Default: hsl(162, 162, 40%)
+      Orange: hsl(14, 100%, 65%) - Blue: hsl(210, 100%, 70%)
+      Pink: hsl(356, 100%, 75%) - Purple: hsl(250, 100%, 75%)
+
+      For more colors visit: https://colors.dopely.top/color-pedia
+      -> Choose any color 
+      -> click on tab (Color Conversion)
+      -> Copy the color mode (HSL)
+  */
+
+    --hue: 210;
+    --first-color: hsl(var(--hue), 100%, 70%);
+    --first-color-alt: hsl(var(--hue), 56%, 35%);
+    --title-color: hsl(228, 8%, 95%);
+    --text-color: hsl(228, 8%, 65%);
+    --body-color: hsl(228, 15%, 20%);
+    --container-color: hsl(228, 15%, 15%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Poppins", sans-serif;
+    --biggest-font-size: 2rem;
+    --bigger-font-size: 1.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -14,7 +61,7 @@ body {
     place-items: center;
 }
 .otp-wrapper {
-    background-color: #fff;
+    background-color: var(--body-color);
     border-radius: 8px;
     box-shadow: 5px 7px 15px 0px rgba(0, 0, 0, 0.2);
     padding: 2rem;

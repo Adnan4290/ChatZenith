@@ -88,8 +88,6 @@ window.onload = function() {
     otpInput[0].focus();
 }
 let fullOtp = [];
-let correctOtp = "123456";
-let attempts = 0;
 form.addEventListener('submit', (e) => {
     e.preventDefault(); // We call e.preventDefault to prevent the default submit behavior so we can do client-side form submission.
     const formData = new FormData(form); // Then we create the formData object with the FormData constructor with the form as the argument to get the form data values.
@@ -97,23 +95,4 @@ form.addEventListener('submit', (e) => {
         fullOtp.push(pair[1]);
     }
     let a = fullOtp.join(''); // To get entered OTP as a single string.
-    if (a == correctOtp) {
-        document.getElementsByTagName('body')[0].innerText = "Entered OTP is correct.";
-    }
-    else {
-        attempts++;
-        if (attempts < 3) {
-            alert(`Entered OTP is incorrect. You have ${3 - attempts} attempts left. Please retry.`);
-            for(let i = 0; i < otpInput.length - 1; i++) {
-                if(otpInput[i].value == "") {
-                    otpInput[i].focus();
-                    break;
-                }
-            }
-            fullOtp = [];
-        } else {
-            alert("You have exceeded the maximum number of attempts. Please try again later.");
-            window.location.reload();
-        }
-    }
 })
