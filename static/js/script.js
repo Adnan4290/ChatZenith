@@ -46,20 +46,20 @@ window.addEventListener('scroll', blurHeader)
 const limitText = (selector, defaultLimit, smallLimit) => {
     const elements = document.querySelectorAll(selector);
     elements.forEach(element => {
-      let limit = defaultLimit;
+        let limit = defaultLimit;
       if (window.innerWidth < 350) {
         limit = smallLimit;
       }
       if (element.textContent.length > limit) {
         const truncated = element.textContent.substring(0, limit) + '...';
         element.textContent = truncated;
-      }
+    }
     });
-  };
-  
-  limitText('.chat__title', 20, 20);
-  limitText('.last__text', 30, 20);
-  
+};
+
+limitText('.chat__title', 20, 20);
+limitText('.last__text', 30, 20);
+
   
 
 

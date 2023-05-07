@@ -1,20 +1,6 @@
 :root {
     --header-height: 4rem;
 
-    /*========== Colors ==========*/
-    /*Color mode HSL(hue, saturation, lightness)*/
-    /* 
-      Change favorite color
-      Default: hsl(162, 162, 40%)
-      Orange: hsl(14, 100%, 65%) - Blue: hsl(210, 100%, 70%)
-      Pink: hsl(356, 100%, 75%) - Purple: hsl(250, 100%, 75%)
-
-      For more colors visit: https://colors.dopely.top/color-pedia
-      -> Choose any color 
-      -> click on tab (Color Conversion)
-      -> Copy the color mode (HSL)
-  */
-
     --hue: 210;
     --first-color: hsl(var(--hue), 100%, 70%);
     --first-color-alt: hsl(var(--hue), 56%, 35%);
@@ -148,11 +134,12 @@ svg {
 .section__subtitle span {
     color: var(--first-color);
 }
+
 /* .main{
 margin-top: 4rem
 } */
 /* ===========================header===================== */
-.header{
+.header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -164,32 +151,40 @@ margin-top: 4rem
     background-color: var(--container-color);
     z-index: 20;
 }
-.header div{
+.chat__title h3{
+    color: var(--first-color);
+}
+
+.header div {
     padding: 0.2rem;
 }
-.profile__pic img{
+
+.profile__pic img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
 }
-.flex-grow-1{
+
+.flex-grow-1 {
     flex-grow: 1;
 }
- /*=================================== main message body========================= */
- .msg{
+
+/*=================================== main message body========================= */
+.msg {
     display: flex;
     align-items: flex-start;
     margin-bottom: 1rem;
     /* max-width: 70vw;     */
 }
-.msg__img{
+
+.msg__img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
     /*  margin-right: 10px;  */
- } 
+}
 
-.msg__body{
+.msg__body {
     background-color: var(--first-color-alt);
     padding: 0.5rem;
     border-radius: 10px;
@@ -198,61 +193,66 @@ margin-top: 4rem
     margin-left: 0.5rem;
     max-width: 500px;
 }
+
 /* message mac length for mobile screens */
 @media screen and (max-width: 500px) {
-    .msg__body{
+    .msg__body {
         max-width: 70vw;
     }
 }
-.msg__time{
+
+.msg__time {
     font-size: 0.6rem;
     color: var(--text-color);
     margin-left: 10px;
 }
-.msg__info{
+
+.msg__info {
     display: flex;
     align-items: center;
-    
+
 }
-.msg__profile-pic{
+
+.msg__profile-pic {
     /* I want the pic on top  */
     display: flex;
     /* background-image: url(/static/img/profile-pic.png); */
 }
-.right-msg{
+
+.user__sent-from {
+    color: var(--first-color);
+}
+
+.right-msg {
     flex-direction: row-reverse;
     right: 0;
     position: relative;
     right: 0;
 }
-.left-msg{
-    flex-direction:row;
+
+.right-msg img {
+    margin-left: 0.5rem;
+}
+
+.left-msg {
+    flex-direction: row;
     position: relative;
     left: 0;
-} 
-/* ======================================footer================================= */
-/* footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--body-color);
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-  } */
-  
-  .chat__form {
+}
+
+.chat__form {
     display: flex;
     align-items: center;
     background-color: var(--body-color);
     padding: 0.5rem;
     border-radius: 10px;
     margin-top: 1rem;
-  }
-  
-  .chat__input {
+}
+.chat__form i{
+    color: var(--first-color);
+}
+
+.chat__input {
     flex-grow: 1;
     border: none;
     background-color: transparent;
@@ -262,65 +262,93 @@ margin-top: 4rem
     outline: none;
     height: auto;
     overflow-y: auto;
-  } 
+}
 
-  
-  .chat__send-btn {
+
+.chat__send-btn {
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
     color: var(--text-color);
     cursor: pointer;
-  }
-  
-  .chat__send-btn i {
+}
+
+.chat__send-btn i {
     vertical-align: middle;
-  }
-  
-  .chat__file-input {
+}
+
+.chat__file-input {
     display: none;
-  }
-  
-  .chat__file-label {
+}
+
+.chat__file-label {
     cursor: pointer;
     font-size: 1.5rem;
     margin-left: 10px;
     color: var(--text-color);
-  }
-  
-  .chat__file-label i {
+}
+
+.chat__file-label i {
     vertical-align: middle;
-  }
-  #file-btn{
+}
+
+#file-btn {
     display: none;
-  }
-  footer{
-    background-color: var(--container-color);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  footer i{
-    padding: 1rem 0.5rem;
-  }
-  #myInput {
+}
+
+#myInput {
     overflow: hidden;
     resize: none;
     height: auto;
-    min-height: 40px; /* the minimum height of the input */
-  }
-  .main{
-    margin-top: 4rem;
+    min-height: 40px;
+    /* the minimum height of the input */
+}
+
+.main {
+    padding-top: 1rem;
     background-image: url(https://www.shutterstock.com/image-vector/seamless-pattern-outline-icons-seo-600w-659141167.jpg);
     background-size: cover;
     background-attachment: fixed;
-  }
-  header i{
-    padding : 1rem 0.5rem;
-    font-size: var(--bigger-font-size);
-  }
-  
-  
-  
+    padding-bottom: 4.5rem;
 
-  
+}
+
+header i {
+    padding: 1rem 0.5rem;
+    font-size: var(--bigger-font-size);
+}
+
+/* ======================footer and input section =========================== */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    background-color: var(--container-color);
+}
+/* ======================Dropdown button =========================== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    width: 10rem;
+    display: none;
+    position: fixed;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    top: var(--header-height);
+    right: 0;
+    background-color: var(--body-color);
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a{
+    font-size: var(--bigger-font-size);
+    color: var(--text-color);
+    padding: 0.5rem 0.5rem;
+    
+  }
+  .show {display:flex !important;}
