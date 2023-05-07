@@ -27,7 +27,7 @@ app.config.update(
 mail = Mail(app)
 
 class Accounts(db.Model):
-    index = db.Column(db.Integer, primary_key = True)
+    id_no = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(60), nullable=False)
     first_name = db.Column(db.String(25), nullable=False)
     last_name = db.Column(db.String(25), nullable=False)
