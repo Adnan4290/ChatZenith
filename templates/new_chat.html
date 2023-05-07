@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/924188e037.js" crossorigin="anonymous"></script>
     <!-- =====================remix icons==================== -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
 </head>
 <body>
@@ -35,7 +35,7 @@
     <section class="section__chat ">
         
         <div class="chat ">
-            <div class="profile__pic"><img src="/static/img/profile-pic.png" alt="profile-pic"></div>
+            <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
         <div>
             <h3 class="chat__title">Username</h3>
             <div class="last__text">User about</div>
@@ -45,7 +45,7 @@
 </section>  <section class="section__chat ">
     
     <div class="chat ">
-        <div class="profile__pic"><img src="/static/img/profile-pic.png" alt="profile-pic"></div>
+        <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
         <div>
             <h3 class="chat__title">Username</h3>
             <div class="last__text">User about</div>
@@ -55,7 +55,7 @@
 </section>  <section class="section__chat ">
 
     <div class="chat ">
-        <div class="profile__pic"><img src="/static/img/profile-pic.png" alt="profile-pic"></div>
+        <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
         <div>
             <h3 class="chat__title">Username</h3>
             <div class="last__text">Users about</div>
