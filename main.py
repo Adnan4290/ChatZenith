@@ -127,7 +127,14 @@ def register():
                 i = str(randint(0, 9))
                 otp += i
             session['otp'] = otp
-            mail_msg = Message(subject=f"Mail from ChatZenith", sender="ChatZenith@outlook.com", recipients=[session.get('email')], body=f"\n\nName:\t{session.get('firstname')} {session.get('lastname')}\n\nEmail:\t{session.get('email')}\n\nMessage:\tPlease verify your email with the otp {otp}")
+            mail_msg = Message(subject=f"Mail from ChatZenith", sender="ChatZenith@outlook.com", recipients=[session.get('email')], body=f"\nDear {session.get('firstname')} {session.get('lastname')},
+
+Thank you for registering with ChatZenith. To verify your email, please use the following OTP: {otp}
+
+If you didn't register for ChatZenith, please ignore this email.
+
+Best regards,
+The ChatZenith Team")
             mail.send(mail_msg)
             return redirect("/otp")
             
