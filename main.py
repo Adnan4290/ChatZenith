@@ -59,7 +59,7 @@ class Chats(db.Model):
     chat_id =  db.Column(db.Integer, primary_key = True)
     userid = db.Column(db.Integer, nullable = False)
     last_msg = db.Column(db.String(50), nullable = False)
-    date_time = db.Column(db.DateTime, nullable=False)
+    datetime = db.Column(db.DateTime, nullable=False)
 
 
 
@@ -149,7 +149,7 @@ def otp():
             newacc = Accounts(email = session.get('email'), first_name = session.get('firstname'), last_name = session.get('lastname'), password = session.get('password'))
             db.session.add(newacc)
             db.session.commit()
-            newquery = Accounts.query.filter(Accounts.email== session.get('email'), Accounts.password== session.get('password')).first()
+            newquery = Accounts.query.filter(Accounts.email== session.get('email'), Accounts.password == session.get('password')).first()
             if newquery:
                 session['user_id'] = newquery.id_no
                 session.pop('otp')
@@ -174,20 +174,20 @@ def chat():
 
 
 
-
-
-
-
+@app.route("/new_chat")
+def newchat():
+    return render_template("new_chat.html")
 
 
 
 
 @app.route("/default")
 def default():
-    # if 'user_id' in session:
-        return render_template("default_Screen.html")
-    # else:
-    #     return redirect("/")
+    if 'user_id' in session:
+        chats = Chats.query.filter_by(userid = session.get('user_id')).all()
+        return render_template("default_Screen.html", chats = chats)
+    else:
+        return redirect("/")
 
 
 
