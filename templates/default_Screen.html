@@ -76,160 +76,19 @@
             </div>
             
         </a>
+        {% for chat in chats%}
         <section class="section__chat ">
 
             <div class="chat ">
                 <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
                 <div>
                     <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
+                    <div class="last__text">{{chat.last_msg}}</div>
                 </div>
-                <div class="last__time">12:38</div>
+                <div class="last__time">{{chat.datetime}}</div>
             </div>
         </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
-        <section class="section__chat ">
-
-            <div class="chat ">
-                <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-                <div>
-                    <h3 class="chat__title">Bryan</h3>
-                    <div class="last__text">A longer message to check if it handles....</div>
-                </div>
-                <div class="last__time">12:38</div>
-            </div>
-        </section>
+        {% endfor %}
     </main>
 
     <script src="{{url_for('static', filename = "js/script.js") }}></script>
