@@ -150,7 +150,8 @@ svg {
     color: var(--first-color);
 }
 .main{
-margin-top: 4rem
+margin-top: 4rem;
+
 }
 
 /* ========================copied css====================== */
@@ -377,7 +378,7 @@ input[type="submit"]:hover {
 }
 
 /* Navigation for mobile devices */
-@media screen and (max-width: 1023px) {
+/* @media screen and (max-width: 1023px) { */
     .nav__menu {
         position: fixed; 
         top: 0; 
@@ -392,6 +393,34 @@ input[type="submit"]:hover {
         -webkit-backdrop-filter: blur(24px);
         /* For safar/ */
         transition: right 0.4s;
+    }
+    
+/* } */
+@media screen and (min-width: 1023px) {
+    .main{max-width: 60%;}
+    .center {
+        width: 400px;
+    }
+    .nav__toggle,
+    .nav__close{
+        display: none;
+
+    }
+    .nav__menu{
+        top: 0;
+        right: 0;
+    max-width: 40%;
+    }
+    /* .header{
+        max-width: 50%;
+    } */
+    .nav{
+        max-width: 50%;
+    }
+     .chat__new{
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
     }
 }
 
@@ -483,11 +512,33 @@ input[type="submit"]:hover {
 }
 
 /* for medium devices */
-@media screen and (min-width: 768px) {
+@media screen and (min-width:768px) {
+    .main{max-width: 400px;}
     .center {
         width: 400px;
     }
-}
+    .nav__toggle,
+    .nav__close{
+        display: none;
+
+    }
+    .nav__menu{
+        top: 0;
+        right: 0;
+    max-width: 50%;
+    }
+    /* .header{
+        max-width: 50%;
+    } */
+    .nav{
+        max-width: 50%;
+    }
+     .chat__new{
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+    }
+} 
 /* ==================================================logo============================= */
 .logo {
     justify-self: center;
