@@ -127,14 +127,7 @@ def register():
                 i = str(randint(0, 9))
                 otp += i
             session['otp'] = otp
-            mail_msg = Message(subject=f"Mail from ChatZenith", sender="ChatZenith@outlook.com", recipients=[session.get('email')], body=f"\nDear {session.get('firstname')} {session.get('lastname')},
-
-Thank you for registering with ChatZenith. To verify your email, please use the following OTP: {otp}
-
-If you didn't register for ChatZenith, please ignore this email.
-
-Best regards,
-The ChatZenith Team")
+            mail_msg = Message (subject=f"Mail from ChatZenith", sender="ChatZenith@outlook.com", recipients=[session.get('email')], body=f"\nDear {session.get('firstname')} {session.get('lastname')},\nThank you for registering with ChatZenith. To verify your email, please use the following OTP: {otp}\nIf you did not  register for ChatZenith, please ignore this email.\nBest regards,\nThe ChatZenith Team")
             mail.send(mail_msg)
             return redirect("/otp")
             
@@ -191,10 +184,10 @@ def chat():
 
 @app.route("/default")
 def default():
-    if 'user_id' in session:
+    # if 'user_id' in session:
         return render_template("default_Screen.html")
-    else:
-        return redirect("/")
+    # else:
+    #     return redirect("/")
 
 
 
