@@ -1,28 +1,11 @@
 /*=============== SHOW MENU ===============*/
-const navMenu = document.querySelector('.nav__menu')
-    navToggle = document.querySelector('.nav__toggle'),
-    navClose = document.querySelector('.nav__close')
+function show() {
+    const navMenu = document.querySelector('.nav__menu');
+    navMenu.classList.toggle('show-menu');
     
-
-/*===== MENU SHOW =====*/
-/* Validate if constant exists */
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu')
-        navToggle.style.visibility = "hidden";
-
-    })
 }
 
-/*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
-if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu')
-        navToggle.style.display = 'flex';
-        navToggle.style.visibility = 'visible';
-    })
-}
+
 
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')

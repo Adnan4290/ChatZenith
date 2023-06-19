@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
-    
+    <!-- ==============================temporary code , remove once dropdown is fixed==============================   -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- <link rel="stylesheet" href="/static/css/chat.css"> -->
+    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/script.js"></script>
     <!-- =====================font awesome==================== -->
     <script src="https://kit.fontawesome.com/924188e037.js" crossorigin="anonymous"></script>
     <!-- =====================remix icons==================== -->
@@ -36,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="nav__menu show-menu " id="nav-menu">
+            <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__list-item"><a href="#" class="nav__link"><i
                                 class="fa-solid fa-message"></i>Messages</a></li>
@@ -48,13 +52,13 @@
                                 class="fa-solid fa-inbox"></i>Logout</a></li>
                 </ul>
 
-                <div class="nav__close" id="nav-close">
+                <div class="nav__close" id="nav-close" onclick="show()">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
 
             <!-- Toggle Button  -->
-            <div class="nav__toggle" id="nav-toggle">
+            <div class="nav__toggle" id="nav-toggle" onclick="show()">
 
                 <i class="ri-menu-line"></i>
                 <div>
