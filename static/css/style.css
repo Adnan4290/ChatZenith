@@ -377,8 +377,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-/* Navigation for mobile devices */
-/* @media screen and (max-width: 1023px) { */
+/* Navigation for mobile devices */     
     .nav__menu {
         position: fixed; 
         top: 0; 
@@ -394,8 +393,7 @@ input[type="submit"]:hover {
         /* For safar/ */
         transition: right 0.4s;
     }
-    
-/* } */
+
 @media screen and (min-width: 1023px) {
     .main{max-width: 60%;}
     .center {
