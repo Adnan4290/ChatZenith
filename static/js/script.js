@@ -42,6 +42,11 @@ const limitText = (selector, defaultLimit, smallLimit) => {
 
 limitText('.chat__title', 20, 20);
 limitText('.last__text', 30, 20);
+// popup 
+function popup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
 
   
 

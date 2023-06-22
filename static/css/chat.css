@@ -357,3 +357,27 @@ footer {
     
   }
   .show {display:flex !important;}
+  /* Scroll up  */
+  .scrollup {
+    position: fixed;
+    right: 1rem;
+    bottom: -50%;
+    background-color: var(--body-color);
+    padding: 6px;
+    display: inline-flex;
+    border-radius: .25rem;
+    color: var(--first-color);
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px hsla(228, 15%, 8%, .4);
+    z-index: var(--z-tooltip);
+    transition: bottom .4s, transform .4s;
+  }
+  .scrollup:hover {
+    transform: translateY(-.25rem);
+  }
+  
+  /* Show Scroll Up */
+  .show-scroll {
+    bottom: 6rem;
+  }
+

@@ -48,8 +48,7 @@
                                 class="fa-regular fa-star"></i>Starred</a></li>
                     <li class="nav__list-item"><a href="#" class="nav__link"><i
                                 class="fa-solid fa-inbox"></i>Archived</a></li>
-                    <li class="nav__list-item"><a href="/logout" class="nav__link"><i
-                                class="fa-solid fa-inbox"></i>Logout</a></li>
+                    <li class="nav__list-item"><a href="#" class="nav__link" onclick="popup()"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>Logout</a></li>
                 </ul>
 
                 <div class="nav__close" id="nav-close" onclick="show()">
@@ -93,6 +92,16 @@
                 </div>
             </a>
         </section>
+        <!-- exit popup -->
+        <div class="popup " >
+            <span class="popuptext " id="myPopup">Are you sure you want to logout?
+                <br>
+                <a href="/logout"><button class="yes">Yes</button></a>
+                <button class="no" onclick="popup()">No</button>
+            </span>
+
+
+          </div>
         {% endfor %}
     </main>
 

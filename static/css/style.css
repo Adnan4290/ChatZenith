@@ -683,4 +683,68 @@ position: relative;
 top: 3rem;
 }
 .otp-send{padding: 2rem 2rem;}
+/* popup */
+/* Popup container */
+.popup {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    /* center it horizontally and vertically  */
+     left: -20%;
+    top: 50%; 
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    font-size: 2rem;
+    visibility: hidden;
+    width: 80vw;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3rem 2rem;
+    position: absolute;
+    z-index: 500;
+    /* bottom: 125%; */
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  .popup button{
+    font-size: 2rem;
+  }
+  .yes{
+    background-color: var(--first-color);
+    color: var(--body-color);
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
 
