@@ -58,6 +58,7 @@ class Accounts(db.Model):
 class Chats(db.Model):
     chat_id =  db.Column(db.Integer, primary_key = True)
     userid = db.Column(db.Integer, nullable = False)
+    chatfrom = db.Column(db.String(255), nullable = False)
     last_msg = db.Column(db.String(50), nullable = False)
     datetime = db.Column(db.DateTime, nullable=False)
 
