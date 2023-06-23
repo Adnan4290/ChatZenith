@@ -85,7 +85,7 @@
                 <div class="chat ">
                     <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
                     <div>
-                        <h3 class="chat__title">{{chat.chatfrom}}</h3>
+                        <h3 class="chat__title">{{ chat.chatfrom | get_username }}</h3>
                         <div class="last__text">{{chat.last_msg}}</div>
                     </div>
                     <div class="last__time">{{chat.datetime}}</div>

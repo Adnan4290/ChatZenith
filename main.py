@@ -6,7 +6,7 @@ import json
 import os
 from werkzeug.utils import secure_filename
 from random import randint
-
+from jinja2 import Environment
 
 
 
@@ -36,9 +36,16 @@ mail = Mail(app)
 
 
 
+def get_username(chatfrom):
+    user = Accounts.query.filter_by(id_no=chatfrom).first()
+    if user:
+        return f"{user.first_name} {user.last_name}"
+    return 'Unknown User'
 
-
-
+# Register the custom filter using the template_filter decorator
+@app.template_filter('get_username')
+def get_username_filter(chatfrom):
+    return get_username(chatfrom)
 
 
 class Accounts(db.Model):
@@ -58,7 +65,8 @@ class Accounts(db.Model):
 class Chats(db.Model):
     chat_id =  db.Column(db.Integer, primary_key = True)
     userid = db.Column(db.Integer, nullable = False)
-    chatfrom = db.Column(db.String(255), nullable = False)
+    chatfrom = db.Column(db.Integer, nullable = False)
+    chatTitle = db.Column(db.String(255), nullable = False)
     last_msg = db.Column(db.String(50), nullable = False)
     datetime = db.Column(db.DateTime, nullable=False)
 
@@ -170,7 +178,9 @@ def otp():
 
 @app.route("/chat")
 def chat():
-    return render_template("chat.html")
+    if 'user_id' in session:
+        chats = Chats.query.filter_by(userid = session.get('user_id')).all()
+        return render_template("chat.html", chats = chats)
 
 
 
@@ -186,7 +196,12 @@ def newchat():
 def default():
     if 'user_id' in session:
         chats = Chats.query.filter_by(userid = session.get('user_id')).all()
-        return render_template("default_Screen.html", chats = chats)
+        usernames = []
+        for chat in chats:
+            user = Accounts.query.filter_by(id_no=chat.chatfrom).first()
+            if user:
+                usernames.append(user.first_name + " " + user.last_name)
+        return render_template("default_Screen.html", chats=chats, usernames=usernames)
     else:
         return redirect("/")
 

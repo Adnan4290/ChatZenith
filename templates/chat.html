@@ -24,7 +24,7 @@
 
 
 
-
+{% for chat in chats %}
     <section class=".chat__section">
         <header class="header">
             <div class="back__button">
@@ -36,7 +36,7 @@
             </div>
             <div class="chat__title">
 
-                <h3 >Chat Title</h3>
+                <h3 >{{chat.chatTitle}}</h3>
             </div>
             <span class="flex-grow-1"></span>
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="msg__body">
                     <div class="msg__info">
-     <h4 class="user__sent-from">Username</h4>
+     <h4 class="user__sent-from">{{chat.chatTitle}}</h4>
                         <span class="flex-grow-1">
 
                         </span>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="msg__body">
                     <div class="msg__info">
-     <h4 class="user__sent-from">Username</h4>
+     <h4 class="user__sent-from">You</h4>
                         <span class="flex-grow-1">
 
                         </span>
@@ -96,6 +96,7 @@
             <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
             
         </main>
+{% endfor %}
         <footer>
             <form action="" class="chat__form">
 
