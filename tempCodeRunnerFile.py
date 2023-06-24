@@ -1,1 +1,1 @@
-newchat():
+chatting = Chatting.query.filter_by(chatroute = session.get('chatroute')).all()

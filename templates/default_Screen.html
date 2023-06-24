@@ -81,7 +81,7 @@
         </a>
         {% for chat in chats%}
         <section class="section__chat ">
-            <a href = "/chat">
+            <a href = "/chat/{{chat.chatroute}}">
                 <div class="chat ">
                     <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
                     <div>

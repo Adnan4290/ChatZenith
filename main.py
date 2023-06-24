@@ -2,11 +2,9 @@ from flask import Flask, render_template, request, session, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 from datetime import datetime
-import json
 import os
 from werkzeug.utils import secure_filename
 from random import randint
-from jinja2 import Environment
 
 
 
@@ -64,12 +62,24 @@ class Accounts(db.Model):
 
 class Chats(db.Model):
     chat_id =  db.Column(db.Integer, primary_key = True)
+    chatroute = db.Column(db.Integer, nullable = False)
     userid = db.Column(db.Integer, nullable = False)
     chatfrom = db.Column(db.Integer, nullable = False)
-    chatTitle = db.Column(db.String(255), nullable = False)
+    chatTitle = db.Column(db.String(50), nullable = False)
     last_msg = db.Column(db.String(50), nullable = False)
     datetime = db.Column(db.DateTime, nullable=False)
 
+
+
+
+class Chatting(db.Model):
+    msgid =  db.Column(db.Integer, primary_key = True)
+    chatroute =  db.Column(db.Integer, nullable = False)
+    chattingid =  db.Column(db.Integer, nullable = False)
+    userid =  db.Column(db.Integer, nullable =  False)
+    chatTitle = db.Column(db.String(50), nullable = False)
+    msg = db.Column(db.String(255), nullable = False)
+    datetime =  db.Column(db.DateTime, nullable=False)
 
 
 
@@ -176,11 +186,40 @@ def otp():
 
 
 
-@app.route("/chat")
-def chat():
+@app.route("/chat/<int:chatroute>/", methods=['GET', 'POST'])
+def chat(chatroute):
     if 'user_id' in session:
-        chats = Chats.query.filter_by(userid = session.get('user_id')).all()
-        return render_template("chat.html", chats = chats)
+        session['chatroute'] = chatroute
+        if request.method == 'POST':
+            message = request.form.get('message')
+            chat = Chats.query.filter_by(chatTitle =  request.form.get('chatTitle')).first()
+            # Create a new Chatting object with the message details
+            new_message = Chatting(
+                chatroute=session.get('chatroute'),
+                chattingid=chat.chat_id,  # Update this value as per your requirement
+                userid=session.get('user_id'),
+                chatTitle=request.form.get('chatTitle'),  # Update this value as per your requirement
+                msg=message,
+                datetime=datetime.now()
+            )
+            
+            # Add the new message to the database
+            db.session.add(new_message)
+            db.session.commit()
+            
+            # Redirect to the chat page or render the template with updated messages
+            return redirect("/chat/{}".format(session.get('chatroute')))
+        
+        else:
+            chatting = Chatting.query.filter_by(chatroute=session.get('chatroute')).all()
+            title = ''
+            for chats in chatting:
+                if chats.userid == session.get('user_id'):
+                    title = chats.chatTitle
+                else :
+                    title = "Unknown"
+            return render_template("chat.html", chats=chatting, title=title, linkid=session.get('chatroute'), userid=session.get('user_id'))
+
 
 
 
@@ -198,7 +237,7 @@ def default():
         chats = Chats.query.filter_by(userid = session.get('user_id')).all()
         usernames = []
         for chat in chats:
-            user = Accounts.query.filter_by(id_no=chat.chatfrom).first()
+            user = Accounts.query.filter_by(id_no = chat.chatfrom).first()
             if user:
                 usernames.append(user.first_name + " " + user.last_name)
         return render_template("default_Screen.html", chats=chats, usernames=usernames)
@@ -214,4 +253,4 @@ def default():
 
 
 
-app.run(debug= True, host="0.0.0.0")
+app.run(debug= True)
