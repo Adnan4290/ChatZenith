@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 24, 2023 at 07:52 PM
+-- Generation Time: Jun 25, 2023 at 06:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -80,6 +80,7 @@ CREATE TABLE `chatting` (
   `chatroute` int(255) NOT NULL,
   `chattingid` int(255) NOT NULL,
   `userid` int(255) NOT NULL,
+  `chatfrom` int(255) NOT NULL,
   `chatTitle` varchar(50) NOT NULL,
   `msg` varchar(255) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT current_timestamp()
@@ -89,11 +90,28 @@ CREATE TABLE `chatting` (
 -- Dumping data for table `chatting`
 --
 
-INSERT INTO `chatting` (`msgid`, `chatroute`, `chattingid`, `userid`, `chatTitle`, `msg`, `datetime`) VALUES
-(1, 1, 3, 2, 'Adnan Shazad', 'HI', '2023-06-23 16:47:44'),
-(2, 1, 4, 1, 'Waleed Hassan', 'Hello', '2023-06-23 16:47:44'),
-(4, 1, 3, 1, 'Adnan Shazad', 'First message', '2023-06-23 22:12:41'),
-(5, 1, 3, 1, 'Adnan Shazad', 'Second message', '2023-06-24 10:58:51');
+INSERT INTO `chatting` (`msgid`, `chatroute`, `chattingid`, `userid`, `chatfrom`, `chatTitle`, `msg`, `datetime`) VALUES
+(1, 1, 3, 2, 2, 'Waleed Hassan', 'HI', '2023-06-23 16:47:44'),
+(2, 1, 4, 1, 1, 'Adnan Shazad', 'Hello', '2023-06-23 16:47:44'),
+(4, 1, 3, 1, 1, 'Adnan Shazad', 'First message', '2023-06-23 22:12:41'),
+(5, 1, 3, 1, 1, 'Adnan Shazad', 'Second message', '2023-06-24 10:58:51'),
+(6, 1, 3, 1, 1, 'Adnan Shazad', 'Aoa kia haal ha', '2023-06-25 21:08:53'),
+(7, 1, 4, 2, 2, 'Waleed Hassan', 'w.salaam Allah ka shukar', '2023-06-25 21:09:44'),
+(8, 1, 4, 2, 2, 'Waleed Hassan', 'aap sunao', '2023-06-25 21:09:56'),
+(9, 1, 4, 2, 2, 'Waleed Hassan', 'aap sunao', '2023-06-25 21:09:56'),
+(10, 1, 3, 1, 1, 'Adnan Shazad', 'app ko refresh krna prta ha everytime to receive messages', '2023-06-25 21:10:23'),
+(11, 1, 3, 1, 1, 'Adnan Shazad', 'cheaking the fix', '2023-06-25 21:37:45'),
+(12, 1, 4, 2, 2, 'Waleed Hassan', 'Fixed?', '2023-06-25 21:38:17'),
+(13, 1, 3, 1, 1, 'Adnan Shazad', 'yes fixed', '2023-06-25 21:40:49'),
+(14, 1, 4, 2, 2, 'Waleed Hassan', 'Great', '2023-06-25 21:41:23'),
+(15, 1, 3, 1, 1, 'Adnan Shazad', 'aagay ho?', '2023-06-25 21:44:20'),
+(16, 1, 4, 2, 2, 'Waleed Hassan', 'hey', '2023-06-25 21:44:31'),
+(17, 1, 4, 2, 2, 'Waleed Hassan', 'hey', '2023-06-25 21:44:55'),
+(18, 1, 4, 2, 2, 'Waleed Hassan', 'hey', '2023-06-25 21:44:59'),
+(19, 1, 3, 1, 1, 'Adnan Shazad', 'yes it worked', '2023-06-25 21:45:12'),
+(20, 1, 4, 2, 2, 'Waleed Hassan', 'agya bro', '2023-06-25 21:45:31'),
+(21, 1, 3, 1, 1, 'Adnan Shazad', 'ab frontend mslaa kr rha ha shi se rendering nhi ho rhi', '2023-06-25 21:45:46'),
+(22, 1, 3, 1, 1, 'Adnan Shazad', 'krdia message', '2023-06-25 21:47:07');
 
 --
 -- Indexes for dumped tables
@@ -141,7 +159,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `chatting`
 --
 ALTER TABLE `chatting`
-  MODIFY `msgid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `msgid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
