@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/static/css/chat.css">
     <script src="/static/js/chat.js"></script>
     <script src="/static/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
                 <img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
             </div>
             <div class="chat__title">
-                <h3>{{title}}</h3>
+                        <h3>{{ title }}</h3>
             </div>
             <span class="flex-grow-1"></span>
             <div class="chat__options">
@@ -42,47 +43,47 @@
                 </div>
             </div>
         </header>
-        <main class="main">
-            {% for chat in chats %}
-            {% if chat.msg and chat.userid != userid %}
-            <div class="msg left-msg">
-                <div class="msg__profile-pic">
-                    <img class="msg__img" src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
-                    <span class="flex-grow-1"></span>
-                </div>
-                <div class="msg__body">
-                    <div class="msg__info">
-                        <h4 class="user__sent-from">{{title}}</h4>
-                        <span class="flex-grow-1"></span>
-                        <span>{{chat.datetime}}</span>
-                    </div>
-                    <div class="msg__text">
-                        <p>{{chat.msg}}</p>
-                    </div>
-                </div>
+<main class="main">
+    {% for chat in chats %}
+    {% if chat.msg and chat.userid != userid %}
+    <div class="msg left-msg">
+        <div class="msg__profile-pic">
+            <img class="msg__img" src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
+            <span class="flex-grow-1"></span>
+        </div>
+        <div class="msg__body">
+            <div class="msg__info">
+                        <h3>{{ title }}</h3>
+                <span class="flex-grow-1"></span>
+                <span>{{chat.datetime}}</span>
             </div>
-            {% endif %}
-            {% if chat.msg and chat.userid == userid%}
-            <div class="msg right-msg">
-                <div class="msg__profile-pic">
-                    <img class="msg__img" src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
-                    <span class="flex-grow-1"></span>
-                </div>
-                <div class="msg__body">
-                    <div class="msg__info">
-                        <h4 class="user__sent-from">You</h4>
-                        <span class="flex-grow-1"></span>
-                        <span>{{chat.datetime}}</span>
-                    </div>
-                    <div class="msg__text">
-                        <p>{{chat.msg}}</p>
-                    </div>
-                </div>
+            <div class="msg__text">
+                <p>{{chat.msg}}</p>
             </div>
-            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    {% if chat.msg and chat.userid == userid%}
+    <div class="msg right-msg">
+        <div class="msg__profile-pic">
+            <img class="msg__img" src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
+            <span class="flex-grow-1"></span>
+        </div>
+        <div class="msg__body">
+            <div class="msg__info">
+                <h4 class="user__sent-from">You</h4>
+                <span class="flex-grow-1"></span>
+                <span>{{chat.datetime}}</span>
+            </div>
+            <div class="msg__text">
+                <p>{{chat.msg}}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</main>
 
-            {% endfor %}
-        </main>
         <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
         <footer>
             <form action="/chat/{{linkid}}", method = "post" class="chat__form">
@@ -100,5 +101,37 @@
     </section>
     <script src="{{url_for('static', filename='js/chat.js')}}"></script>
 </body>
+<script>
+        // Establish WebSocket connection
+        var socket = io();
 
+        // Listen for 'new_message' event and append the new message to the chat
+        socket.on('new_message', function(data) {
+            var msg = `
+                <div class="msg left-msg">
+                    <div class="msg__profile-pic">
+                        <img class="msg__img" src="{{url_for('static', filename='img/profile-pic.png')}}" alt="">
+                        <span class="flex-grow-1"></span>
+                    </div>
+                    <div class="msg__body">
+                        <div class="msg__info">
+                            <h3>${data.chatTitle}</h3>
+                            <span class="flex-grow-1"></span>
+                            <span>${data.datetime}</span>
+                        </div>
+                        <div class="msg__text">
+                            <p>${data.msg}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Append the new message to the chat
+            document.querySelector('.main').insertAdjacentHTML('beforeend', msg);
+
+            // Scroll to the bottom of the chat
+            var chatContainer = document.querySelector('.main');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        });
+    </script>
 </html>

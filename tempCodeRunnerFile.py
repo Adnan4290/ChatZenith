@@ -1,1 +1,1 @@
-chatting = Chatting.query.filter_by(chatroute = session.get('chatroute')).all()
+        # chats = Chats.query.filter_by(userid = session.get('user_id')).all()
