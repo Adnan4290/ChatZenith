@@ -1,14 +1,7 @@
-const input = document.getElementById('myInput');
-
-function resizeInput() {
-  input.style.height = 'auto';
-  input.style.height = input.scrollHeight + 'px';
-}
-
 input.addEventListener('input', resizeInput);
 // ==========================Dropdown menu in chat.html ==========================
 function Dropdown() {
-  document.getElementById("nav-menu").classList.toggle("show");
+  document.querySelector(".dropdown-content").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it

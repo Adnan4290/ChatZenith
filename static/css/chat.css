@@ -307,15 +307,14 @@ margin-top: 4rem
 
 .main {
     margin-top: 4rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 6rem;
     background-image: url(https://www.shutterstock.com/image-vector/seamless-pattern-outline-icons-seo-600w-659141167.jpg);
-    /* Make the background image cover the whole space horizontally  */
-    /* background-repeat: repeat-x; */
-    background-size:cover;
+    /* make the image cover the whole screen even though it scrolls or length increases */
+    background-size: cover;
+    background-repeat: no-repeat;   
     background-attachment: fixed;
-    padding-bottom: 4.5rem;
-    height: 100vh;
-
 }
 
 header i {
