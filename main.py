@@ -170,9 +170,16 @@ def handle_connect():
 def handle_disconnect():
     print('Client disconnected')
     
-@app.route("/new_chat")
+@app.route("/new_chat", methods = ['POST'])
 def newchat():
-    return render_template("new_chat.html")
+    if 'user_id' in session:
+        if request.method == 'POST':
+            to = request.form.get('search')
+            result  = Accounts.query.filter_by(email = to).first()
+            return render_template("new_chat.html", result =  result)
+        return render_template("new_chat.html", result = None)
+    else:
+        return redirect("/")
 
 @app.route("/default")
 def default():

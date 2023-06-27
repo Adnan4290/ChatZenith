@@ -22,47 +22,32 @@
         <h2 class="top__heading">New converstion</h2>
         
     </div>
-<div class="to_input">
-    <span>To : </span>
-    <input type="text" name="to" id="to" placeholder="enter username">
-    <div class="keypad">
-        <!-- keypad icon from remix icons -->
-        <i class="ri-send-plane-fill"></i>
-    </div>
-</div>
+    <form action = "/new_chat", method = "post">
+        <div class="to_input">
+            <span>To : </span>
+            <input type="text" name="search" id="to" placeholder="enter username">
+            <div class="keypad">
+                <!-- keypad icon from remix icons -->
+                <button typoe = "submit"><i class="ri-send-plane-fill"></i></button>
+            </div>
+        </div>
+    </form>
 <div class="search_results">
-
+    {% if result %}
     <section class="section__chat ">
         
         <div class="chat ">
             <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-        <div>
-            <h3 class="chat__title">Username</h3>
-            <div class="last__text">User about</div>
+            <div>
+                <h3 class="chat__title">{{result.first_name + " " + result.last_name}}</h3>
+                <div class="last__text">{{result.email}}</div>
+            </div>
+            <div class="last__time"></div>
         </div>
-        <div class="last__time">some other user info</div>
-    </div>
-</section>  <section class="section__chat ">
-    
-    <div class="chat ">
-        <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-        <div>
-            <h3 class="chat__title">Username</h3>
-            <div class="last__text">User about</div>
-        </div>
-        <div class="last__time">some other user info</div>
-    </div>
-</section>  <section class="section__chat ">
-
-    <div class="chat ">
-        <div class="profile__pic"><img src="{{url_for('static', filename='img/profile-pic.png')}}" alt="profile-pic"></div>
-        <div>
-            <h3 class="chat__title">Username</h3>
-            <div class="last__text">Users about</div>
-        </div>
-        <div class="last__time">some other user info</div>
-    </div>
-</section>
+    </section>
+    {% else %}
+        <h3 class="chat__title">No User Found Please Check Username You Entered</h3>
+    {% endif %}
 </div>
 
 
