@@ -8,26 +8,26 @@ To install ChatZenith on your system, follow these steps:
 
 1. Clone the repository to your local machine:
 
-```bash
+```
 git clone https://github.com/your_username/ChatZenith.git
 ```
 
 2. Navigate to the project directory:
 
-```bash
+```
 cd ChatZenith
 ```
 
 3. Create and activate a virtual environment (optional but recommended):
 
-```bash
+```
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 4. Install the required dependencies:
 
-```bash
+```
 pip3 install -r requirements.txt
 ```
 
@@ -53,22 +53,10 @@ Before running the application, you need to import the database into XAMPP. Foll
 
 To run the ChatZenith application, execute the following command:
 
-```bash
+```
 python3 app.py
 ```
 
 Once the application is running, open your web browser and visit `http://localhost:5000` to access ChatZenith.
 
-## Usage
 
-- Register or log in with your credentials.
-- Create or join a chat room.
-- Start chatting with other users in real-time.
-
-## Contributing
-
-We welcome contributions to improve ChatZenith. If you want to contribute, please follow the guidelines in `CONTRIBUTING.md`.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
