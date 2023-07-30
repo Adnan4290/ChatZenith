@@ -1,1 +1,0 @@
-        # chats = Chats.query.filter_by(userid = session.get('user_id')).all()

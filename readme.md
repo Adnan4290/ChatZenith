@@ -9,7 +9,7 @@ To install ChatZenith on your system, follow these steps:
 1. Clone the repository to your local machine:
 
 ```
-git clone https://github.com/your_username/ChatZenith.git
+git clone https://github.com/Adnan4290/ChatZenith.git
 ```
 
 2. Navigate to the project directory:
@@ -54,7 +54,7 @@ Before running the application, you need to import the database into XAMPP. Foll
 To run the ChatZenith application, execute the following command:
 
 ```
-python3 app.py
+python3 main.py
 ```
 
 Once the application is running, open your web browser and visit `http://localhost:5000` to access ChatZenith.
